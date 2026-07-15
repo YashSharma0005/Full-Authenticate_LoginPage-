@@ -1,0 +1,289 @@
+:root {
+  --primary-red: #dc2626;
+  --dark-slate: #1f2937;
+  --light-gray: #f3f4f6;
+  --white: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #f8fafc;
+  color: var(--dark-slate);
+}
+
+/* Hero Section Formatting */
+.hero-scenic-viewport {
+  position: relative;
+  height: 420px;
+  width: 100%;
+  overflow: visible;
+  margin-bottom: 100px;
+}
+
+.scenic-background-image-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.actual-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 54px;
+}
+
+.hero-dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+  border-radius: 54px;
+}
+
+/* Overlapping Floating Search Box Styling */
+.floating-search-engine-card {
+      position: absolute;
+    bottom: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1100px;
+    background: var(--white);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    z-index: 10;
+}
+
+.search-category-tabs-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+
+.left-tabs-cluster {
+  display: flex;
+  gap: 8px;
+}
+
+.category-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  font-weight: 600;
+  font-size: 14px;
+  color: #6b7280;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.category-tab-btn.is-active {
+  background-color: #fee2e2;
+  color: var(--primary-red);
+}
+
+.right-platform-tagline {
+  font-size: 13px;
+  font-weight: 700;
+  color: #059669;
+}
+
+/* Search Input Rows Arrangement */
+.inline-search-fields-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.input-field-wrapper {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #d1d5db;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background-color: var(--white);
+}
+
+.field-marker-icon {
+  font-size: 18px;
+}
+
+.field-input-stack {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.field-input-stack label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #9ca3af;
+  text-transform: uppercase;
+}
+
+.field-input-stack input {
+  border: none;
+  outline: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark-slate);
+  width: 100%;
+  margin-top: 2px;
+}
+
+.field-swap-circle-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #d1d5db;
+  background: var(--white);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: background 0.2s;
+}
+
+.field-swap-circle-button:hover {
+  background-color: var(--light-gray);
+}
+
+.execute-search-action-button {
+  background-color: var(--primary-red);
+  color: var(--white);
+  padding: 16px 32px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.3);
+  transition: opacity 0.2s;
+}
+
+.execute-search-action-button:hover {
+  opacity: 0.9;
+}
+
+/* Offers Grid Layout Formatting */
+.dashboard-offers-grid-container, .top-routes-section {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.section-header-flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-main-heading {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--dark-slate);
+}
+
+.section-view-all-link {
+  color: var(--primary-red);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.offers-carousel-track {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.promo-card-tile {
+  border-radius: 14px;
+  padding: 20px;
+  color: var(--dark-slate);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.card-bg-pink { background: linear-gradient(135deg, #fff5f5, #ffe3e3); }
+.card-bg-blue { background: linear-gradient(135deg, #f0fdf4, #dcfce7); }
+.card-bg-purple { background: linear-gradient(135deg, #f5f3ff, #ede9fe); }
+
+.offer-tag {
+  font-size: 10px;
+  font-weight: 800;
+  background: rgba(0,0,0,0.07);
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+.promo-coupon-code-badge {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 14px;
+  border: 2px dashed var(--primary-red);
+  font-weight: 700;
+  border-radius: 6px;
+  color: var(--primary-red);
+  background: rgba(255,255,255,0.6);
+}
+
+/* Routes Grid Layout Styling */
+.routes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.route-card-tile {
+  background: var(--white);
+  border: 1px solid #e5e7eb;
+  padding: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.route-card-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+/* Global SweetAlert2 Border Radius Fix */
+.swal2-popup {
+  border-radius: 50px !important;
+}
+
+
+
+/* SweetAlert2 पॉपअप का रेडियस 50px करने के लिए */
+.swal2-popup {
+    border-radius: 50px !important;
+}
+
+/* अगर आप बटन के कोनों को भी थोड़ा और अट्रैक्टिव या कर्व्ड करना चाहते हैं (ऑप्शनल) */
+.swal2-actions button {
+    border-radius: 12px !important;
+}
+
+
