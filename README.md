@@ -1,4 +1,4 @@
-# 🚌 GoBus - MERN Bus Booking Platform
+# 🚌  - MERN Bus Booking Platform
 
 GoBus is a full-stack MERN (MongoDB, Express.js, React.js, Node.js) bus booking platform designed to connect passengers and bus operators through a modern and user-friendly interface. The project includes secure authentication, password recovery using OTP, and separate dashboards for different types of users.
 
