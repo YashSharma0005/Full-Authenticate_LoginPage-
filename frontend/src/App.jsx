@@ -1,4 +1,4 @@
-import VerifyOtp from './components/VerifyOtp';
+// import VerifyOtp from './components/VerifyOtp';
 import React, { useState, useEffect } from 'react';
 import Auth from './AuthPage';
 import Dashboard from './Dashboard';

@@ -80,7 +80,7 @@ export const handleSmartAuth = async ({ isSignup, name, email, password, setCurr
                 });
 
                 const fallbackName = email.includes('@') ? email.split('@')[0] : 'Gobus User';
-                
+
                 const signupResult = await executeSignupApi(fallbackName, email, password);
                 if (!signupResult.response.ok) throw new Error(signupResult.data.message || 'Auto-Signup failed');
 

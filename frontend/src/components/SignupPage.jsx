@@ -65,7 +65,7 @@ export default function SignupPage({ setIsSignup, setView, setCurrentUser }) {
                         placeholder="e.g. Enter your name"
                         value={name}
                         onChange={(e) => handleInputChange('name', e.target.value, setName)}
-                        style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: `2px solid ${fieldErrors.name ? '#dc2626' : '#e5e7eb'}`, outline: 'none', fontSize: '14px' }}
+                        style={{ width: '95%', padding: '12px 16px', borderRadius: '12px', border: `2px solid ${fieldErrors.name ? '#dc2626' : '#e5e7eb'}`, outline: 'none', fontSize: '14px' }}
                     />
                     {fieldErrors.name && <span style={{ color: '#dc2626', fontSize: '12px' }}>⚠️ {fieldErrors.name}</span>}
                 </div>
@@ -77,7 +77,7 @@ export default function SignupPage({ setIsSignup, setView, setCurrentUser }) {
                         placeholder="name@domain.com or 10-digit number"
                         value={email}
                         onChange={(e) => handleInputChange('email', e.target.value, setEmail)}
-                        style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: `2px solid ${fieldErrors.email ? '#dc2626' : '#e5e7eb'}`, outline: 'none', fontSize: '14px' }}
+                        style={{ width: '95%', padding: '12px 16px', borderRadius: '12px', border: `2px solid ${fieldErrors.email ? '#dc2626' : '#e5e7eb'}`, outline: 'none', fontSize: '14px' }}
                     />
                     {fieldErrors.email && <span style={{ color: '#dc2626', fontSize: '12px' }}>⚠️ {fieldErrors.email}</span>}
                 </div>
@@ -90,7 +90,7 @@ export default function SignupPage({ setIsSignup, setView, setCurrentUser }) {
                             placeholder="Enter the Password"
                             value={password}
                             onChange={(e) => handleInputChange('password', e.target.value, setPassword)}
-                            style={{ width: '100%', padding: '12px 48px 12px 16px', borderRadius: '12px', border: `2px solid ${fieldErrors.password ? '#dc2626' : '#e5e7eb'}`, outline: 'none', fontSize: '14px' }}
+                            style={{ width: '95%', padding: '12px 16px 12px 16px', borderRadius: '12px', border: `2px solid ${fieldErrors.password ? '#dc2626' : '#e5e7eb'}`, outline: 'none', fontSize: '14px' }}
                         />
                         <button type="button" onClick={() => setShowPassword(!showPassword)} style={{ position: 'absolute', right: '16px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer' }}>
                             {showPassword ? "🙈" : "👁️"}

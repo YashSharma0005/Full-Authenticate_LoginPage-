@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Snackbar, Alert } from "@mui/material";
+import { sendResetLink } from "../services/firebaseAuth";
 
 export default function ForgotPassword({ setView }) {
+
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
 
@@ -13,6 +15,7 @@ export default function ForgotPassword({ setView }) {
 
   const [timer, setTimer] = useState(60);
   const [canResend, setCanResend] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [message, setMessage] = useState("");
@@ -177,7 +180,7 @@ export default function ForgotPassword({ setView }) {
       setOpenSnackbar(true);
     }
   };
-    return (
+  return (
     <div
       style={{
         display: "flex",
@@ -217,11 +220,13 @@ export default function ForgotPassword({ setView }) {
           disabled={otpVerified}
           style={{
             width: "100%",
+            boxSizing: "border-box",
             padding: "14px",
             marginTop: "25px",
             borderRadius: "12px",
             border: "2px solid #ddd",
             background: otpVerified ? "#f3f4f6" : "#fff"
+
           }}
         />
 

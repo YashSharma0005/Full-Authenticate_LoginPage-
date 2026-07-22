@@ -2,16 +2,19 @@ const User = require("../models/User");
 const transporter = require("../config/mailConfig");
 const bcrypt = require("bcryptjs");
 
+
 /* ==========================
    SEND OTP
 ========================== */
 exports.forgotPassword = async (req, res) => {
     try {
+
         const { email } = req.body;
 
         const user = await User.findOne({
             email: email.trim().toLowerCase()
         });
+
 
         if (!user) {
             return res.status(404).json({
@@ -19,98 +22,165 @@ exports.forgotPassword = async (req, res) => {
             });
         }
 
-        // Generate OTP
+
         const otp = Math.floor(
             100000 + Math.random() * 900000
         ).toString();
 
+
         user.otp = otp;
         user.otpExpiry = Date.now() + 5 * 60 * 1000;
 
+
         await user.save();
 
-        console.log("OTP Saved:", otp);
+        
+        await transporter.sendMail({
+
+            from: `"Travel Support" <${process.env.EMAIL}>`,
+
+            to: user.email,
+
+            subject: "Travel Password Reset OTP",
+
+            html: `
+                <h2>Travel Password Reset</h2>
+
+                <p>Your OTP is:</p>
+
+                <h1>${otp}</h1>
+
+                <p>This OTP is valid for 5 minutes.</p>
+            `
+        });
+
+
+        console.log("OTP Sent Successfully:", otp);
+
 
         res.json({
             message: "OTP sent successfully"
         });
 
+
     } catch (err) {
+
+        console.log("MAIL ERROR:", err);
+
         res.status(500).json({
             message: err.message
         });
     }
 };
 
+
+
 /* ==========================
    VERIFY OTP
 ========================== */
-exports.verifyOtp = async (req, res) => {
-    try {
-        const { email, otp } = req.body;
-        console.log("Email received from frontend:", email);
-        const user = await User.findOne({
-            email: email.toLowerCase(),
+exports.verifyOtp = async (req,res)=>{
+
+    try{
+
+        const {email,otp}=req.body;
+
+
+        const user=await User.findOne({
+            email:email.toLowerCase()
         });
 
 
-        if (!user) {
+        if(!user){
             return res.status(404).json({
-                message: "User not found",
+                message:"User not found"
             });
         }
 
-        if (
+
+        if(
             user.otp !== otp ||
             user.otpExpiry < Date.now()
-        ) {
+        ){
+
             return res.status(400).json({
-                message: "Invalid or Expired OTP",
+                message:"Invalid or Expired OTP"
             });
+
         }
 
+
         res.json({
-            message: "OTP Verified",
+            message:"OTP Verified"
         });
-    } catch (err) {
+
+
+    }catch(err){
+
         res.status(500).json({
-            message: err.message,
+            message:err.message
         });
+
     }
+
 };
+
+
+
 
 /* ==========================
    RESET PASSWORD
 ========================== */
-exports.resetPassword = async (req, res) => {
-    try {
-        const { email, password } = req.body;
+exports.resetPassword = async(req,res)=>{
 
-        const user = await User.findOne({
-            email: email.toLowerCase(),
+    try{
+
+        const {email,password}=req.body;
+
+
+        const user=await User.findOne({
+            email:email.toLowerCase()
         });
 
-        if (!user) {
+
+
+        if(!user){
+
             return res.status(404).json({
-                message: "User not found",
+                message:"User not found"
             });
+
         }
 
-        const hashedPassword =
-            await bcrypt.hash(password, 10);
 
-        user.password = hashedPassword;
-        user.otp = "";
-        user.otpExpiry = null;
+
+        const hashedPassword =
+        await bcrypt.hash(password,10);
+
+
+
+        user.password=hashedPassword;
+        user.otp="";
+        user.otpExpiry=null;
+
 
         await user.save();
 
+
+
         res.json({
-            message: "Password Updated Successfully",
+
+            message:"Password Updated Successfully"
+
         });
-    } catch (err) {
+
+
+
+    }catch(err){
+
         res.status(500).json({
-            message: err.message,
+            message:err.message
         });
+
     }
+
 };

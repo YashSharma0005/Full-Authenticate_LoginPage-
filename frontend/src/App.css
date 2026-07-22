@@ -609,13 +609,13 @@ body {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.auth-right-form-panel {
-  width: 58%;
-  padding: 44px 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+/* .auth-right-form-panel {
+    width: 40%;
+    padding: 14px 43px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} */
 
 .auth-panel-heading h2 {
   font-size: 22px;
@@ -965,6 +965,28 @@ body {
 
 
 
+* {
+    box-sizing: border-box;
+}
+
+input,
+button,
+textarea,
+select {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.container,
+.form-container,
+.login-box {
+    width: 100%;
+    max-width: 100%;
+}
 
 
 
@@ -976,8 +998,58 @@ body {
 
 
 
+.hero-scenic-viewport{
+    position: relative;
+    overflow: visible !important;
+}
 
 
+.scenic-background-image-layer{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    z-index:0;
+
+}
+
+
+.hero-dark-overlay{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    z-index:1;
+
+}
+
+
+.floating-search-engine-card{
+
+    position:relative;
+
+    z-index:10;
+
+}
+
+
+button{
+
+    position:relative;
+
+    z-index:20;
+
+}
 
 
 

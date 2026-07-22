@@ -28,7 +28,7 @@ export default function AuthPage({ isSignup, setIsSignup, setView, setCurrentUse
                     display: 'flex', flexDirection: 'column', justifyContent: 'space-between', 
                     textAlign: isMobile ? 'center' : 'left' 
                 }}>
-                    <div style={{ fontSize: isMobile ? '32px' : '42px', fontWeight: '800', letterSpacing: '-1px' }}>gobus</div>
+                    <div style={{ fontSize: isMobile ? '32px' : '42px', fontWeight: '800', letterSpacing: '-1px' }}>Travel</div>
                     
                     {!isMobile && (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', margin: '20px 0' }}>
@@ -49,11 +49,11 @@ export default function AuthPage({ isSignup, setIsSignup, setView, setCurrentUse
                         </div>
                     )}
 
-                    {!isMobile && <div style={{ fontSize: '11px', color: '#fee2e2', opacity: 0.8 }}>© 2026 GOBUS Shell Integration Engine.</div>}
+                    {!isMobile && <div style={{ fontSize: '11px', color: '#fee2e2', opacity: 0.8 }}>© 2026 TRAVEL Shell Integration Engine.</div>}
                 </div>
 
                 {/* RIGHT PANEL - DYNAMIC RENDERING SLOTS */}
-                <div className="auth-right-form-panel" style={{ width: isMobile ? '100%' : '60%', padding: isMobile ? '30px 20px' : '50px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <div className="auth-right-form-panel" style={{ width: isMobile ? '100%' : '46%', padding: isMobile ? '30px 20px' : '24px 28px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                     
                     {isSignup ? (
                         <SignupPage setIsSignup={setIsSignup} setView={setView} setCurrentUser={setCurrentUser} />
@@ -71,9 +71,9 @@ export default function AuthPage({ isSignup, setIsSignup, setView, setCurrentUse
                             {isSignup ? 'Want to Login instead?' : 'Create an Account instead?'}
                         </button>
                         <br /><br />
-                        <button type="button" onClick={() => setView('dashboard')} style={{ background: 'none', border: 'none', color: '#4b5563', fontWeight: '600', fontSize: '13px', cursor: 'pointer' }}>
+                        {/* <button type="button" onClick={() => setView('dashboard')} style={{ background: 'none', border: 'none', color: '#4b5563', fontWeight: '600', fontSize: '13px', cursor: 'pointer' }}>
                             ← Continue exploring as Guest
-                        </button>
+                        </button> */}
                     </div>
 
                 </div>

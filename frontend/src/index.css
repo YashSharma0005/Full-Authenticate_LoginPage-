@@ -276,12 +276,11 @@ body {
 
 
 
-/* SweetAlert2 पॉपअप का रेडियस 50px करने के लिए */
+
 .swal2-popup {
     border-radius: 50px !important;
 }
 
-/* अगर आप बटन के कोनों को भी थोड़ा और अट्रैक्टिव या कर्व्ड करना चाहते हैं (ऑप्शनल) */
 .swal2-actions button {
     border-radius: 12px !important;
 }
